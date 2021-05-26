@@ -1,11 +1,21 @@
 {
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
+    "plugins": [
+      {
+        "name": "ts-lit-plugin",
+        "strict": true
+      }
+    ],
+    "experimentalDecorators": true,
     "rootDir": ".",
     "outDir": "dist",
     "lib": ["ES2018", "DOM"],
+    "esModuleInterop": true,
+    "declaration": false,
     "noEmitOnError": false,
-    "esModuleInterop": true
+    "alwaysStrict": false,
+    "noImplicitUseStrict": true
   },
   "include": ["extension/**/*.ts", "utils/*.ts", "test/**/*.ts"]
 }

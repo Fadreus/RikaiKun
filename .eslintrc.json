@@ -1,17 +1,10 @@
 {
-  "extends": "./node_modules/gts/",
+  "extends": ["./node_modules/gts/", "plugin:lit/recommended"],
   "env": {
     "browser": true,
     "webextensions": true
   },
   "plugins": ["eslint-plugin-tsdoc", "sort-imports-es6-autofix"],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly",
-    "rcxMain": "readonly",
-    "rcxDict": "readonly",
-    "TTS": "readonly"
-  },
   "ignorePatterns": "dist",
   "rules": {
     "tsdoc/syntax": "error",
@@ -20,6 +13,7 @@
     "sort-imports-es6-autofix/sort-imports-es6": "error",
     "node/no-unpublished-import": "off",
     "@typescript-eslint/no-var-requires": "off",
+    "unicode-bom": "error",
     // TODO(espeed): Remove these and fix errors.
     "no-undef": "off",
     "prefer-arrow-callback": "off",

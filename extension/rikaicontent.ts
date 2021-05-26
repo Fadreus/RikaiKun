@@ -39,6 +39,8 @@
 
 */
 
+import { DictEntryData } from './data';
+
 const rcxContent = {
   dictCount: 3,
   altView: 0,
@@ -288,7 +290,7 @@ const rcxContent = {
 
   // Array used for storing the last popup content shown, useful for easily
   // operating on the value after rendering (for copying for example).
-  lastFound: null,
+  lastFound: [] as DictEntryData[],
 
   configPage: function () {
     window.openDialog(
@@ -332,6 +334,7 @@ const rcxContent = {
     let i;
     let shouldPreventDefault = true;
     const maxDictEntries = window.rikaichan.config.maxDictEntries;
+    let e: DictEntryData | null;
 
     switch (ev.keyCode) {
       case 16: // shift
@@ -709,7 +712,7 @@ const rcxContent = {
     return 1;
   },
 
-  processEntry: function (e) {
+  processEntry: function (e: DictEntryData | null) {
     tdata = window.rikaichan;
     ro = lastRo;
     selEndList = lastSelEnd;
